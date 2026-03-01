@@ -40,7 +40,7 @@ main {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 /* Section cards */
@@ -67,7 +67,7 @@ h2 {
 
 p {
     line-height: 1.6;
-    color: #374151;
+    color: #1f2937;
 }
 
 strong {
