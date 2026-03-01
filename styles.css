@@ -120,3 +120,32 @@ li {
 #randomQuestion {
     grid-column: span 7;
 }
+
+#boringFact {
+    grid-column: span 5;
+}
+
+#slangThatNeedsToGo, #interestingArticle {
+    grid-column: span 5;
+}
+
+/* Image */
+
+#coolPic img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 10px 30px #00000033;
+}
+
+/* responsive */
+
+@media screen and (max-width: 900px) {
+    main {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    main section {
+        grid-column: span 6;
+    }
+}
