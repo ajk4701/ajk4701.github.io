@@ -1,1 +1,49 @@
 /*styles for tp4*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.page {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Grid for Tic Tac Toe */
+.gameboard {
+    width: min(90vw, 400px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    padding: 8px;
+    border-radius: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*each cell of the gameboard*/
+.cell {
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+}
+
