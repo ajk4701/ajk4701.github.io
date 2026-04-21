@@ -1,1 +1,6 @@
 /* CSS for Concentration Game */
+
+* {
+    box-sizing: border-box;
+}
+
