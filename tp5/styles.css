@@ -21,6 +21,8 @@ h1 {
     text-align: center;
 }
 
+/* Grid for Concentration Game */
+
 .gameboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -28,6 +30,8 @@ h1 {
     max-width: 900px;
     margin: 0 auto;
 }
+
+/*card design*/
 
 .card {
     aspect-ratio: 1 / 1;
@@ -75,6 +79,8 @@ h1 {
     max-height: 80%;
     object-fit: contain;
 }
+
+/* Responsive design for smaller screens */
 
 @media (max-width: 700px) {
 	.gameboard {
