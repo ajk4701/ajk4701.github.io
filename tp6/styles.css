@@ -1,2 +1,17 @@
 /*CSS for tp6*/
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1B2A41, #6FB7E9);
+    color: #16324f;
+    min-height:100vh;
+    padding: 20px;
+}
+
+
