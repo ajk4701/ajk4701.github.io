@@ -36,7 +36,7 @@ body {
 }
 
 /*tempature and icon*/
-.current-weather {
+.current-main {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -93,3 +93,74 @@ body {
 }
 
 /*mobile forcast row*/
+.forecast-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    cursor: grab;
+    scrollbar-width: none;
+}
+
+.forecast-row::-webkit-scrollbar {
+    display: none;
+}
+
+.forecast-row.dragging {
+    cursor: grabbing;
+}
+
+.forecast-card {
+    min-width: 120px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.forecast-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.range {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/*desktop layout*/
+@media (min-width: 768px) {
+    body{
+        padding: 40px;
+    }
+
+    .app {
+        max-width: 900px;
+    }
+
+    .current-weather {
+        padding: 32px;
+    }
+
+    .temp {
+        font-size: 5rem;
+    }
+
+    .weather-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .forecast-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        cursor: default;
+    }
+
+    .forecast-card {
+        min-width: 0;
+    }
+
+}
