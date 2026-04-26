@@ -12,11 +12,11 @@ body {
     background: linear-gradient(to bottom, #4F7DA3, #A9CFE8);
     color: #16324f;
     min-height:100vh;
-    padding: 20px;
+    padding: 16px;
 }
 
 .app {
-    max-width: 420px;
+    max-width: 430px;
     margin: 0 auto;
 }
 
@@ -59,6 +59,7 @@ body {
     object-fit: contain;
 }
 
+/*wind/humidity box*/
 .weather-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -66,7 +67,6 @@ body {
     margin-top: 20px;
 }
 
-/*detail box*/
 .detail-box {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 16px;
@@ -92,12 +92,19 @@ body {
     margin-bottom: 12px;
 }
 
+.forecast-note {
+    font-size: 0.85rem;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
 /*mobile forcast row*/
 .forecast-row {
     display: flex;
     gap: 12px;
     overflow-x: auto;
     padding-bottom: 8px;
+    padding-right: 20px;
     cursor: grab;
     scrollbar-width: none;
 }
@@ -110,8 +117,9 @@ body {
     cursor: grabbing;
 }
 
+/*forecast cards*/
 .forecast-card {
-    min-width: 120px;
+    min-width: 180px;
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 18px;
@@ -152,6 +160,10 @@ body {
         height: 100px;
     }
 
+    .forecast-note {
+        display: none;
+    }
+
     .forecast-row {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -162,5 +174,4 @@ body {
     .forecast-card {
         min-width: 0;
     }
-
 }

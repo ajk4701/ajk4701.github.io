@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     scrollingBox = document.querySelector("#predictions");
     isMoving = false;
 
-    scrollingingBox.addEventListener("mousedown", function(e) {
+    scrollingBox.addEventListener("mousedown", function(e) {
         scrollLeftStart = scrollingBox.scrollLeft;
         offsetLeftStart = e.pageX - scrollingBox.offsetLeft;
         isMoving = true;
@@ -21,10 +21,16 @@ document.addEventListener("DOMContentLoaded", function() {
         scrollingBox.classList.remove("dragging");
     });
 
+    scrollingBox.addEventListener("mouseup", function() {
+        isMoving = false;
+        scrollingBox.classList.remove("dragging");
+    });
+
     scrollingBox.addEventListener("mousemove", function(e) {
         e.preventDefault();
         if (!isMoving) return;
 
-        scrollingBox.scrollLeft = scrollLeftStart - (e.pageX - offsetLeftStart - scrollingBox.offsetLeft);
+        scrollingBox.scrollLeft = 
+        scrollLeftStart - (e.pageX - offsetLeftStart - scrollingBox.offsetLeft);
     });
 });
