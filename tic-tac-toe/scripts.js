@@ -15,9 +15,6 @@ let remaningMoves = 9;
 //track if game is over
 let gameOver = false;
 
-//current player dom element
-let curentPlayer;
-
 //check if 3 spaces match
 function spaceMatch(spaceA, spaceB, spaceC) {
     return spaceA == spaceB && spaceA == spaceC;
@@ -47,23 +44,23 @@ function checkGameboard(a, b, c) {
 //handle clicking square
 function clickSquare() {
     if(this.innerHTML == "" && !gameOver) {
-        this.innerHTML = currentTurn;
+        this.innerHTML = currentPlayer;
         this.classList.add("clicked");
 
-        remaningTurns--;
+        remaningMoves--;
 
         //update array
-        if(this.id == "a1") rowA[0] = currentTurn;
-        if(this.id == "a2") rowA[1] = currentTurn;
-        if(this.id == "a3") rowA[2] = currentTurn;
+        if(this.id == "a1") rowA[0] = currentPlayer;
+        if(this.id == "a2") rowA[1] = currentPlayer;
+        if(this.id == "a3") rowA[2] = currentPlayer;
 
-        if(this.id == "b1") rowB[0] = currentTurn;
-        if(this.id == "b2") rowB[1] = currentTurn;
-        if(this.id == "b3") rowB[2] = currentTurn;
+        if(this.id == "b1") rowB[0] = currentPlayer;
+        if(this.id == "b2") rowB[1] = currentPlayer;
+        if(this.id == "b3") rowB[2] = currentPlayer;
 
-        if(this.id == "c1") rowC[0] = currentTurn;
-        if(this.id == "c2") rowC[1] = currentTurn;
-        if(this.id == "c3") rowC[2] = currentTurn;
+        if(this.id == "c1") rowC[0] = currentPlayer;
+        if(this.id == "c2") rowC[1] = currentPlayer;
+        if(this.id == "c3") rowC[2] = currentPlayer;
 
         console.log(rowA);
         console.log(rowB);
@@ -78,19 +75,19 @@ function clickSquare() {
         } else if (winState == "o") {
             gameOutputMsg.innerHTML = "O wins";
             gameOver = true;
-        } else if (winState == "d" && remaningTurns == 0) {
+        } else if (winState == "d" && remaningMoves == 0) {
             gameOutputMsg.innerHTML = "Draw";
             gameOver = true;
         }
 
         //switch player
         if(!gameOver) {
-            if(currentTurn == "x") {
-                currentTurn = "o";
+            if(currentPlayer == "x") {
+                currentPlayer = "o";
             } else {
-                currentTurn = "x";
+                currentPlayer = "x";
             }
-            curentPlayer.innerHTML = currentTurn;
+            currentPlayer.innerHTML = currentPlayer;
         }
     }
 }
