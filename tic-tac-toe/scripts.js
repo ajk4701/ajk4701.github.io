@@ -43,8 +43,11 @@ function checkGameboard(a, b, c) {
 function showGameOutcome(outcome) {
     gameOutputMsg.innerHTML = outcome;
     gameOutputMsg.classList.add("showOutcome");
-    replayButton.style.display = "block";
     gameOver = true;
+
+    setTimeout(function() {
+        replayButton.style.display = "block";
+    }, 300);
 }
 
 //handle clicking square
@@ -75,9 +78,9 @@ function clickSquare() {
         let winState = checkGameboard(rowA, rowB, rowC);
 
         if (winState == "x") {
-            showGameOutcome("X wins!");
+            showGameOutcome("X Wins!");
         } else if (winState == "o") {
-            showGameOutcome("O wins!");
+            showGameOutcome("O Wins!");
             gameOver = true;
         } else if (winState == "d" && remainingMoves == 0) {
             showGameOutcome("Draw!");
