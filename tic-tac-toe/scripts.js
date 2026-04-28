@@ -40,6 +40,13 @@ function checkGameboard(a, b, c) {
     return outcome;
 }
 
+function showGameOutcome(outcome) {
+    gameOutputMsg.innerHTML = outcome;
+    gameOutputMsg.classList.add("showOutcome");
+    replayButton.style.display = "block";
+    gameOver = true;
+}
+
 //handle clicking square
 function clickSquare() {
     if(this.innerHTML == "" && !gameOver) {
@@ -68,13 +75,12 @@ function clickSquare() {
         let winState = checkGameboard(rowA, rowB, rowC);
 
         if (winState == "x") {
-            gameOutputMsg.innerHTML = "X wins";
-            gameOver = true;
+            showGameOutcome("X wins!");
         } else if (winState == "o") {
-            gameOutputMsg.innerHTML = "O wins";
+            showGameOutcome("O wins!");
             gameOver = true;
         } else if (winState == "d" && remainingMoves == 0) {
-            gameOutputMsg.innerHTML = "Draw";
+            showGameOutcome("Draw!");
             gameOver = true;
         }
 

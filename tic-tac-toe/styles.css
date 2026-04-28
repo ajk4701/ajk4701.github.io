@@ -37,30 +37,44 @@ h1 {
 }
 
 #gameOutcome {
-    min-height: 2rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1d4e89;
+    display: none;
 }
 
-.showOutcome {
+#gameOutcome.showOutcome {
+    position: fixed;
+    inset: 0;
+    background-color: #1d4e89eb;
     color: #fff;
-    border: 3px solid #1d4e89;
-    border-radius: 14px;
-    padding: 0.75rem 1.25rem;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: bold;
+    text-align: center;
 }
 
 #replayButton {
-    padding: 0.75rem 1.5rem;
+    display: none;
+    position: fixed;
+    z-index: 11;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    
+    padding: 0.9rem 1.75rem;
     font-size: 1rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #1d4e89;
+    background-color: #fff;
+    color: #1d4e89;
     border: none;
-    border-radius: 14px;
+    border-radius: 999px;
     cursor: pointer;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#replayButton:hover {
+    background-color: #eef3f8;
 }
 
 /* Grid for Tic Tac Toe */
@@ -86,9 +100,11 @@ h1 {
     align-items: center;
     font-size: clamp(2rem, 10vw, 4rem);
     font-weight: bold;
+    cursor: pointer;
 }
 
 .clicked {
+    cursor: default;
     color: #1d4e89;
 }
 
