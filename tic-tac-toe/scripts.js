@@ -6,17 +6,13 @@ let rowA = ["-", "-", "-"];
 let rowB = ["-", "-", "-"];
 let rowC = ["-", "-", "-"];
 
-// x starts the game
 let currentTurn = "x";
-
-// total moves in a game
 let remainingMoves = 9;
-
-//track if game is over
 let gameOver = false;
 
-//dom element shows current player
 let currentPlayerDisplay;
+let gameOutputMsg;
+let replayButton;
 
 //check if 3 spaces match
 function spaceMatch(spaceA, spaceB, spaceC) {
@@ -69,7 +65,6 @@ function clickSquare() {
         console.log(rowB);
         console.log(rowC);
 
-        let gameOutputMsg = document.querySelector("#gameResult span");
         let winState = checkGameboard(rowA, rowB, rowC);
 
         if (winState == "x") {
@@ -95,6 +90,29 @@ function clickSquare() {
     }
 }
 
+//replay game
+function replayGame() {
+    rowA = ["-", "-", "-"];
+    rowB = ["-", "-", "-"];
+    rowC = ["-", "-", "-"];
+
+    currentTurn = "x";
+    remainingMoves = 9;
+    gameOver = false;
+
+    currentPlayerDisplay.innerHTML = currentTurn;
+    gameOutputMsg.innerHTML = "";
+    gameOutputMsg.classList.remove("showOutcome");
+    replayButton.style.display = "none";
+
+    let allSpaces = document.querySelectorAll(".cell");
+
+    for(let eachSpace of allSpaces) {
+        eachSpace.innerHTML = "";
+        eachSpace.classList.remove("clicked");
+    }
+}
+
 //page load
 document.addEventListener("DOMContentLoaded", function() {
     let allSpaces = document.querySelectorAll(".cell");
@@ -104,5 +122,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     currentPlayerDisplay = document.querySelector("#currentPlayer span");
+    gameOutputMsg = document.querySelector("#gameOutcome");
+    replayButton = document.querySelector("#replayButton");
+
     currentPlayerDisplay.innerHTML = currentTurn;
+    replayButton.addEventListener("click", replayGame);
 });

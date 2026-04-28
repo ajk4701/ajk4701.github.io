@@ -37,10 +37,30 @@ h1 {
 }
 
 #gameOutcome {
-    min-width: 2rem;
+    min-height: 2rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: #1d4e89;
+}
+
+.showOutcome {
+    color: #fff;
+    border: 3px solid #1d4e89;
+    border-radius: 14px;
+    padding: 0.75rem 1.25rem;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+#replayButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1d4e89;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 /* Grid for Tic Tac Toe */
