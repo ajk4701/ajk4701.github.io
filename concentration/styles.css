@@ -32,7 +32,6 @@ h1 {
 }
 
 /*card design*/
-
 .card {
     aspect-ratio: 1 / 1;
     perspective: 1000px;
@@ -46,8 +45,34 @@ h1 {
     transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
+.card.flipped .card-inner {
     transform: rotateY(180deg);
+}
+
+.card.matched {
+    visibility: hidden;
+}
+
+.turns {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.win-panel {
+    display: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 2rem;
+    border: 3px solid #1B4332;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.win-panel.show {
+    display: block;
 }
 
 .card-front, .card-back {
