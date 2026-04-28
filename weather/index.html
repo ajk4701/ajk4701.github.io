@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<!-- meta tags and title -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather 2.0</title>
+
+	<!-- external and internal CSS -->
+	<link rel="stylesheet" href="styles.css" media="all">
+
+	<!-- JavaScript -->
+	<script src="scripts.js"></script>
+	
+</head>
+
+<body>
+
+	<main class="app">
+		
+		<!-- current weather section -->
+		<section class="current-weather">
+			<p class="location">Pullman, WA</p>
+
+			<div class="current-main">
+				<div class="current-text">
+					<h1 class="temp">42&deg;F</h1>
+					<p class="condition">Light Rain</p>
+				</div>
+				<img src="images/rain.png" alt="Rain" class="weather-icon">
+			</div>
+
+			<div class="weather-details">
+				<div class="detail-box">
+					<h2>Wind</h2>
+					<p>19 mph SW</p>
+				</div>
+
+				<div class="detail-box">
+					<h2>Humidity</h2>
+					<p>93%</p>
+				</div>
+				
+			</div>
+		</section>
+
+		<!-- forecast section -->
+		<section class="forecast">
+			<h2>3-Day Forecast</h2>
+			<p class="forecast-note">Drag to see more</p>
+
+			<div class="forecast-row" id="predictions">
+				<article class="forecast-card">
+					<h3>Thursday</h3>
+					<p class="range">53&deg;F / 32&deg;F</p>
+					<p>Partly Cloudy</p>
+					<p>Wind: 19 mph NW</p>
+				</article>
+
+				<article class="forecast-card">
+					<h3>Friday</h3>
+					<p class="range">52&deg;F / 31&deg;F</p>
+					<p>Partly Cloudy</p>
+					<p>Wind: 9 mph NE</p>
+				</article>
+
+				<article class="forecast-card">
+					<h3>Saturday</h3>
+					<p class="range">55&deg;F / 32&deg;F</p>
+					<p>Sunny</p>
+					<p>Wind: 7 mph NE</p>
+				</article>
+			</div>
+		</section>
+
+	</main>
+
+</body>
+</html>
+
