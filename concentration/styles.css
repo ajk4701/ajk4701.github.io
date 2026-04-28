@@ -9,6 +9,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f1e8;
     color: #2f2f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .page {
@@ -22,20 +26,13 @@ h1 {
     margin: 0.5rem 0;
 }
 
-.turns {
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0.5rem 0 1rem;
-}
-
 /* Grid for Concentration Game */
 
 .gameboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
-    max-width: 520px;
+    width: min(90vw, 700px);
     margin: 0 auto;
 }
 
@@ -51,6 +48,11 @@ h1 {
     margin: 2rem auto;
 }
 
+.win-panel.show {
+    display: block;
+}
+
+
 .gameboard.hide {
     display: none;
 }
@@ -58,6 +60,9 @@ h1 {
 /*card design*/
 .card {
     aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
     perspective: 1000px;
 }
 
@@ -81,22 +86,7 @@ h1 {
     text-align: center;
     font-size: 1.25rem;
     font-weight: bold;
-}
-
-.win-panel {
-    display: none;
-    text-align: center;
-    background-color: #fff;
-    padding: 2rem;
-    border: 3px solid #1B4332;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin: 2rem auto;
-}
-
-.win-panel.show {
-    display: block;
+    margin: 0.5rem 0 1rem;
 }
 
 .card-front, .card-back {
