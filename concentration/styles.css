@@ -12,13 +12,21 @@ body {
 }
 
 .page {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 1rem 3rem;
+    padding: 1rem;
 }
 
 h1 {
     text-align: center;
+    margin: 0.5rem 0;
+}
+
+.turns {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0.5rem 0 1rem;
 }
 
 /* Grid for Concentration Game */
@@ -26,9 +34,25 @@ h1 {
 .gameboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.7rem;
-    max-width: 900px;
+    gap: 0.5rem;
+    max-width: 520px;
     margin: 0 auto;
+}
+
+.win-panel {
+    display: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 2rem;
+    border: 3px solid #1B4332;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.gameboard.hide {
+    display: none;
 }
 
 /*card design*/

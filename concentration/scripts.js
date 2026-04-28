@@ -1,8 +1,10 @@
 //select game elements
-const gameboard = document.querySelector('.gameboard');
-const cards = document.querySelectorAll('.card');
-const turnCount = document.querySelector('#turn-count');
-const winPanel = document.querySelector('#win-panel');
+const gameboard = document.querySelector(".gameboard");
+const cards = document.querySelectorAll(".card");
+const turnCount = document.querySelector("#turn-count");
+const winPanel = document.querySelector("#win-panel");
+const finalTurnCount = document.querySelector("#final-turn-count");
+const playAgain = document.querySelector("#play-again");
 
 let flippedCards = [];
 let matchedPairs = 0;
@@ -59,6 +61,12 @@ function checkForMatch() {
     flippedCards = [];
 
     if (matchedPairs === cards.length / 2) {
+        finalTurnCount.textContent = turns;
         winPanel.classList.add("show");
+        gameboard.classList.add("hide");
     }
 }
+
+playAgain.addEventListener("click", function() {
+    location.reload();
+});
