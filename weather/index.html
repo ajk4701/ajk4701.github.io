@@ -19,28 +19,41 @@
 <body>
 
 	<main class="app">
+
+		<button id="open-modal" class="location-button">Change Location</button>
+
+		<div class="modal-background" id="modal-background">
+			<div class="modal">
+				<h2>Enter Location</h2>
+				<form id="location-form">
+					<input type="text" id="location-input" placeholder="City, State or Zip Code">
+					<button id="submit-location">Update Location</button>
+				</form>
+				<button id="close-modal">Close</button>
+			</div>
+		</div>
 		
 		<!-- current weather section -->
 		<section class="current-weather">
-			<p class="location">Pullman, WA</p>
+			<p class="location" id="location">Pullman, WA</p>
 
 			<div class="current-main">
 				<div class="current-text">
-					<h1 class="temp">42&deg;F</h1>
-					<p class="condition">Light Rain</p>
+					<h1 class="temp" id="temp">42&deg;F</h1>
+					<p class="condition" id="condition">Light Rain</p>
 				</div>
-				<img src="images/rain.png" alt="Rain" class="weather-icon">
+				<img src="images/rain.png" alt="Rain" class="weather-icon" id="weather-icon">
 			</div>
 
 			<div class="weather-details">
 				<div class="detail-box">
 					<h2>Wind</h2>
-					<p>19 mph SW</p>
+					<p id="wind">19 mph SW</p>
 				</div>
 
 				<div class="detail-box">
 					<h2>Humidity</h2>
-					<p>93%</p>
+					<p id="humidity">93%</p>
 				</div>
 				
 			</div>
@@ -53,24 +66,24 @@
 
 			<div class="forecast-row" id="predictions">
 				<article class="forecast-card">
-					<h3>Thursday</h3>
-					<p class="range">53&deg;F / 32&deg;F</p>
-					<p>Partly Cloudy</p>
-					<p>Wind: 19 mph NW</p>
+					<h3 id="day1-name">Thursday</h3>
+					<p class="range" id="day1-range">53&deg;F / 32&deg;F</p>
+					<p id="day1-condition">Partly Cloudy</p>
+					<p id="day1-wind">Wind: 19 mph NW</p>
 				</article>
 
 				<article class="forecast-card">
-					<h3>Friday</h3>
-					<p class="range">52&deg;F / 31&deg;F</p>
-					<p>Partly Cloudy</p>
-					<p>Wind: 9 mph NE</p>
+					<h3 id="day2-name">Friday</h3>
+					<p class="range" id="day2-range">52&deg;F / 31&deg;F</p>
+					<p id="day2-condition">Partly Cloudy</p>
+					<p id="day2-wind">Wind: 9 mph NE</p>
 				</article>
 
 				<article class="forecast-card">
-					<h3>Saturday</h3>
-					<p class="range">55&deg;F / 32&deg;F</p>
-					<p>Sunny</p>
-					<p>Wind: 7 mph NE</p>
+					<h3 id="day3-name">Saturday</h3>
+					<p class="range" id="day3-range">55&deg;F / 32&deg;F</p>
+					<p id="day3-condition">Sunny</p>
+					<p id="day3-wind">Wind: 7 mph NE</p>
 				</article>
 			</div>
 		</section>
