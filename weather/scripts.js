@@ -21,7 +21,9 @@ async function getData(url, options) {
 }
 
 function updateWeather(data) {
+    //output full data
     console.log(data);
+    //update temperature, condition, wind, humidity
     document.querySelector("#temp span").textContent = data.current.temp_f;
     document.querySelector("#condition").textContent = data.current.condition.text;
     
@@ -31,7 +33,18 @@ function updateWeather(data) {
     
     document.querySelector("#humidity span").textContent = data.current.humidity;
 
-    
+    let forecastCard = document.querySelector(".forecast-card");
+    for (let i = 0; i < forecastCard.length; i++) {
+        let forecast = data.forecast.forecastday[i];
+        let forecastDate = new Date(forecast.date);
+        let dayName = forecastDate.toLocaleDateString("en-US", { weekday: "long" });
+
+        forecastCard[i].querySelector("h3").textContent = dayName;
+        forecastCard[i].querySelector(".range").innerHTML = forecastDay.day.maxtemp_f + "&deg;F / " + forecastDay.day.mintemp_f + "&deg;F";
+        forecastCards[i].querySelector("p:nth-of-type(2)").textContent = forecastDay.day.condition.text;
+        
+        forecastCards[i].querySelector("p:nth-of-type(3)").textContent = "Wind: " + forecastDay.day.maxwind_mph + " mph";
+    }
 
 }
 
