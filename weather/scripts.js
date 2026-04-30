@@ -29,6 +29,31 @@ function loadWeather(location) {
     });
 }
 
+let openModal = document.querySelector("#open-modal");
+let closeModal = document.querySelector("#close-modal");
+let modalBackground = document.querySelector("#modal-background");
+
+openModal.addEventListener("click", function() {
+    modalBackground.classList.remove("hidden");
+});
+
+closeModal.addEventListener("click", function() {
+    modalBackground.classList.add("hidden");
+});
+
+let locationForm = document.querySelector("#location-form");
+let locationInput = document.querySelector("#location-input");
+
+locationForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    let location = locationInput.value;
+
+    console.log("User entered: " + location);
+
+    modalBackground.classList.remove("show");
+    loadWeather(location);
+});
+
 function updateWeather(data) {
     //output full data
     console.log(data);
