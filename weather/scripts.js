@@ -13,7 +13,7 @@ async function getData(url, options) {
             const result = await response.json();
             return result;
         } else {
-            throw(response.status);
+            throw (response.status);
         }
     } catch (error) {
         console.error(error);
@@ -24,35 +24,10 @@ function loadWeather(location) {
     let sampleURL = "https://tordevries.github.io/477/examples/ajax-api-test/current-forecast.js";
     let sampleOptions = {};
 
-    getData(sampleURL, sampleOptions).then(function(result) {
+    getData(sampleURL, sampleOptions).then(function (result) {
         updateWeather(result);
     });
 }
-
-let openModal = document.querySelector("#open-modal");
-let closeModal = document.querySelector("#close-modal");
-let modalBackground = document.querySelector("#modal-background");
-
-openModal.addEventListener("click", function() {
-    modalBackground.classList.remove("hidden");
-});
-
-closeModal.addEventListener("click", function() {
-    modalBackground.classList.add("hidden");
-});
-
-let locationForm = document.querySelector("#location-form");
-let locationInput = document.querySelector("#location-input");
-
-locationForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    let location = locationInput.value;
-
-    console.log("User entered: " + location);
-
-    modalBackground.classList.remove("show");
-    loadWeather(location);
-});
 
 function updateWeather(data) {
     //output full data
@@ -60,11 +35,11 @@ function updateWeather(data) {
     //update temperature, condition, wind, humidity
     document.querySelector("#temp span").textContent = data.current.temp_f;
     document.querySelector("#condition").textContent = data.current.condition.text;
-    
+
     let windSpeed = data.current.wind_mph;
     let windDir = data.current.wind_dir;
     document.querySelector("#wind").textContent = windSpeed + " mph " + windDir;
-    
+
     document.querySelector("#humidity span").textContent = data.current.humidity;
 
     let forecastCards = document.querySelectorAll(".forecast-card");
@@ -76,40 +51,70 @@ function updateWeather(data) {
         forecastCards[i].querySelector("h3").textContent = dayName;
         forecastCards[i].querySelector(".range").innerHTML = forecastDay.day.maxtemp_f + "&deg;F / " + forecastDay.day.mintemp_f + "&deg;F";
         forecastCards[i].querySelector("p:nth-of-type(2)").textContent = forecastDay.day.condition.text;
-        
+
         forecastCards[i].querySelector("p:nth-of-type(3)").textContent = "Wind: " + forecastDay.day.maxwind_mph + " mph";
     }
 
 }
 
 //wait for dom to load
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     scrollingBox = document.querySelector("#predictions");
     isMoving = false;
 
-    scrollingBox.addEventListener("mousedown", function(e) {
+    scrollingBox.addEventListener("mousedown", function (e) {
         scrollLeftStart = scrollingBox.scrollLeft;
         offsetLeftStart = e.pageX - scrollingBox.offsetLeft;
         isMoving = true;
         scrollingBox.classList.add("dragging");
     });
 
-    scrollingBox.addEventListener("mouseleave", function() {
+    scrollingBox.addEventListener("mouseleave", function () {
         isMoving = false;
         scrollingBox.classList.remove("dragging");
     });
 
-    scrollingBox.addEventListener("mouseup", function() {
+    scrollingBox.addEventListener("mouseup", function () {
         isMoving = false;
         scrollingBox.classList.remove("dragging");
     });
 
-    scrollingBox.addEventListener("mousemove", function(e) {
+    scrollingBox.addEventListener("mousemove", function (e) {
         e.preventDefault();
         if (!isMoving) return;
 
-        scrollingBox.scrollLeft = 
-        scrollLeftStart - (e.pageX - offsetLeftStart - scrollingBox.offsetLeft);
+        scrollingBox.scrollLeft =
+            scrollLeftStart - (e.pageX - offsetLeftStart - scrollingBox.offsetLeft);
+    });
+
+    //modal elements
+    let openModal = document.querySelector("#open-modal");
+    let closeModal = document.querySelector("#close-modal");
+    let modalBackground = document.querySelector("#modal-background");
+    let locationForm = document.querySelector("#location-form");
+    let locationInput = document.querySelector("#location-input");
+
+    //open modal
+    openModal.addEventListener("click", function () {
+        modalBackground.classList.remove("hidden");
+    });
+
+    //close modal
+    closeModal.addEventListener("click", function () {
+        modalBackground.classList.add("hidden");
+    });
+
+    //submit form
+    locationForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let location = locationInput.value;
+
+        console.log("User entered: " + location);
+
+        document.querySelector("#location-name").textContent = location;
+
+        modalBackground.classList.remove("show");
+        loadWeather(location);
     });
 
 
