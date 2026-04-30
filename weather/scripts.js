@@ -53,13 +53,15 @@ function updateWeather(data) {
     document.querySelector("#location").textContent = data.location.name + ", " + data.location.region;
 
     let forecastCards = document.querySelectorAll(".forecast-card");
+
     for (let i = 0; i < forecastCards.length; i++) {
-        let forecastDay = data.forecast.forecastday[i];
+        let forecastDay = data.forecast.forecastday[i + 1];
         let forecastDate = new Date(forecastDay.date);
         let dayName = forecastDate.toLocaleDateString("en-US", { weekday: "long" });
 
         forecastCards[i].querySelector("h3").textContent = dayName;
-        forecastCards[i].querySelector(".range").innerHTML = forecastDay.day.maxtemp_f + "&deg;F / " + forecastDay.day.mintemp_f + "&deg;F";
+        forecastCards[i].querySelector(".range").innerHTML =
+            forecastDay.day.maxtemp_f + "&deg;F / " + forecastDay.day.mintemp_f + "&deg;F";
         forecastCards[i].querySelector("p:nth-of-type(2)").textContent = forecastDay.day.condition.text;
 
         forecastCards[i].querySelector("p:nth-of-type(3)").textContent = "Wind: " + forecastDay.day.maxwind_mph + " mph";
