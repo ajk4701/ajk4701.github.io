@@ -21,7 +21,7 @@ async function getData(url, options) {
 }
 
 function loadWeather(location) {
-    let apiURL = "https://weatherapi-com.p.rapidapi.com/alerts.json?q=" + location +"&days=3";
+    let apiURL = "https://weatherapi-com.p.rapidapi.com/forecast.json?q=" + location + "&days=3";
     let apiOptions = {
         method: "GET",
         headers: {
@@ -31,6 +31,7 @@ function loadWeather(location) {
     };
 
     getData(apiURL, apiOptions).then(function (result) {
+        console.log(result);
         updateWeather(result);
     });
 }
