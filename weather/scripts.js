@@ -21,10 +21,16 @@ async function getData(url, options) {
 }
 
 function loadWeather(location) {
-    let sampleURL = "https://tordevries.github.io/477/examples/ajax-api-test/current-forecast.js";
-    let sampleOptions = {};
+    let apiURL = "https://weatherapi-com.p.rapidapi.com/alerts.json?q=" + location +"&days=3";
+    let apiOptions = {
+        method: "GET",
+        headers: {
+            "X-RapidAPI-Key": "8f5f2d6b2cmsh442719e1ab24b48p1d5c4ajsna75ba16ddd89",
+            "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
+        }
+    };
 
-    getData(sampleURL, sampleOptions).then(function (result) {
+    getData(apiURL, apiOptions).then(function (result) {
         updateWeather(result);
     });
 }
@@ -41,6 +47,9 @@ function updateWeather(data) {
     document.querySelector("#wind").textContent = windSpeed + " mph " + windDir;
 
     document.querySelector("#humidity span").textContent = data.current.humidity;
+    document.querySelector("#weather-icon").src = "https:" + data.current.condition.icon;
+    document.querySelector("#weather-icon").alt = data.current.condition.text;
+    document.querySelector("#location").textContent = data.location.name + ", " + data.location.region;
 
     let forecastCards = document.querySelectorAll(".forecast-card");
     for (let i = 0; i < forecastCards.length; i++) {
@@ -107,15 +116,14 @@ document.addEventListener("DOMContentLoaded", function () {
     //submit form
     locationForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        let location = locationInput.value;
+        let location = locationInput.value.trim();
 
-        console.log("User entered: " + location);
-
-        document.querySelector("#location-name").textContent = location;
-
-        modalBackground.classList.remove("show");
-        loadWeather(location);
+        if (location !== "") {
+            console.log("User entered: " + location);
+            modalBackground.classList.remove("show");
+            loadWeather(location);
+            locationInput.value = "";
+        }
     });
+    loadWeather("Pullman");
 });
-
-loadWeather("Pullman");
