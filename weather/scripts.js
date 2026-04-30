@@ -21,7 +21,7 @@ async function getData(url, options) {
 }
 
 function loadWeather(location) {
-    let apiURL = "https://weatherapi-com.p.rapidapi.com/forecast.json?q=" + location + "&days=3";
+    let apiURL = "https://weatherapi-com.p.rapidapi.com/forecast.json?q=" + location + "&days=4";
     let apiOptions = {
         method: "GET",
         headers: {
@@ -56,7 +56,7 @@ function updateWeather(data) {
 
     for (let i = 0; i < forecastCards.length; i++) {
         let forecastDay = data.forecast.forecastday[i + 1];
-        let forecastDate = new Date(forecastDay.date);
+        let forecastDate = new Date(forecastDay.date + "T00:00:00");
         let dayName = forecastDate.toLocaleDateString("en-US", { weekday: "long" });
 
         forecastCards[i].querySelector("h3").textContent = dayName;
