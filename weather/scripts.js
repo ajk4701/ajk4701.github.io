@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //open modal
     openModal.addEventListener("click", function () {
-        modalBackground.classList.remove("hidden");
+        modalBackground.classList.add("show");
     });
 
     //close modal
     closeModal.addEventListener("click", function () {
-        modalBackground.classList.add("hidden");
+        modalBackground.classList.remove("show");
     });
 
     //submit form
@@ -116,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modalBackground.classList.remove("show");
         loadWeather(location);
     });
-
-
 });
 
+loadWeather("Pullman");
